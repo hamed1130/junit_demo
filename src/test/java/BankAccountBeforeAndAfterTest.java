@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class BankAccountBeforeAndAfterTest {
     static BankAccount bankAccount;
 
@@ -21,12 +23,12 @@ public class BankAccountBeforeAndAfterTest {
     @Test
     public void testWithdraw() {
         bankAccount.withdraw(300);
-        Assertions.assertEquals(200, bankAccount.getBalance());
+        assertEquals(200, bankAccount.getBalance());
     }
 
     @Test
     public void testDeposit() {
         bankAccount.deposit(300);
-        Assertions.assertEquals(500, bankAccount.getBalance());
+        assertEquals(500, bankAccount.getBalance());
     }
 }

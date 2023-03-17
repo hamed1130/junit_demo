@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(BankAccountParameterResolver.class)
 public class BankAccountDITest {
@@ -13,6 +14,16 @@ public class BankAccountDITest {
     public void testDeposit(BankAccount bankAccount) {
         //BankAccount bankAccount = new BankAccount(0,0);
         bankAccount.deposit(500);
-        Assertions.assertEquals(500, bankAccount.getBalance());
+        assertEquals(500, bankAccount.getBalance());
+    }
+
+    @Test
+    @DisplayName("Withdraw tested successfully with DI.")
+    public void testWithdraw(BankAccount bankAccount) {
+        //BankAccount bankAccount = new BankAccount(0,0);
+        assertEquals(0, bankAccount.getBalance());
+        bankAccount.deposit(500);
+        bankAccount.withdraw(300);
+        assertEquals(200, bankAccount.getBalance());
     }
 }
