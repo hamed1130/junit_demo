@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Main {
 
-    public static final String CONSTRUCT = "dfgdfg";
+    public static final String CONSTRUCT = "Hamed";
 
     public static void main(String[] args) {
 
@@ -86,8 +86,6 @@ public class Main {
         CalculateMethods calc = new CalculateMethods();
         System.out.println(calc.divide(1,4));
         System.out.println(1/4);
-
-
     }
 
     static void getProperties() {

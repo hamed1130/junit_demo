@@ -12,6 +12,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.time.DayOfWeek;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(BankAccountParameterResolver.class)
 public class BankAccountParameterizedTestTest {
     @ParameterizedTest
@@ -20,22 +22,22 @@ public class BankAccountParameterizedTestTest {
     public void testDeposit(int amount, BankAccount bankAccount) {
         //BankAccount bankAccount = new BankAccount(0,0);
         bankAccount.deposit(amount);
-        Assertions.assertEquals(amount, bankAccount.getBalance());
+        assertEquals(amount, bankAccount.getBalance());
     }
 
     @ParameterizedTest
     @EnumSource(value = DayOfWeek.class, names = {"TUESDAY", "THURSDAY"})
     public void testDayOdWeek(DayOfWeek day) {
-        Assertions.assertTrue(day.toString().startsWith("T"));
+        assertTrue(day.toString().startsWith("T"));
     }
 
     @ParameterizedTest
-    @CsvSource({"100, Kuni", "200, KosBaboo", "300, KirDeDoo"})
+    @CsvSource({"100, Hamed", "200, David", "300, Mary"})
     public void depositAndNameTest(double amount, String name, BankAccount bankAccount) {
         bankAccount.deposit(amount);
         bankAccount.setHolderName(name);
-        Assertions.assertEquals(amount, bankAccount.getBalance());
-        Assertions.assertEquals(name, bankAccount.getHolderName());
+        assertEquals(amount, bankAccount.getBalance());
+        assertEquals(name, bankAccount.getHolderName());
     }
 
     @ParameterizedTest
@@ -43,7 +45,7 @@ public class BankAccountParameterizedTestTest {
     public void depositAndNameTest1(double amount, String name, BankAccount bankAccount) {
         bankAccount.deposit(amount);
         bankAccount.setHolderName(name);
-        Assertions.assertEquals(amount, bankAccount.getBalance());
-        Assertions.assertEquals(name, bankAccount.getHolderName());
+        assertEquals(amount, bankAccount.getBalance());
+        assertEquals(name, bankAccount.getHolderName());
     }
 }

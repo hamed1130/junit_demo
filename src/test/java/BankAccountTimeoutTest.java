@@ -4,15 +4,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.ExtendWith;
-
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+// for all tests in the class
+//@Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
 @ExtendWith(BankAccountParameterResolver.class)
 public class BankAccountTimeoutTest {
     @Test
     @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
-    public void testDepositTimeoutAssertion(BankAccount bankAccount) {
+    public void testDepositTimeoutAnnotation(BankAccount bankAccount) {
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
@@ -23,7 +24,7 @@ public class BankAccountTimeoutTest {
     }
 
     @Test
-    public void testDepositTimeoutAnnotation(BankAccount bankAccount) {
+    public void testDepositTimeoutAssertion(BankAccount bankAccount) {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
